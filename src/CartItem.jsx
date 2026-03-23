@@ -28,7 +28,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleDecrement = (index) => {
-    if (cart[index].quantity > 0)
+    if (cart[index].quantity > 1)
       dispatch(updateQuantity({ index, type: 'decrement' }))
     else {
       return
@@ -44,6 +44,10 @@ const CartItem = ({ onContinueShopping }) => {
     let totalCost = 0
     return totalCost = totalCost + (item.cost * item.quantity)
   };
+
+  const handleCheckOut = ()=>(
+    alert('This feature will be added in future.')
+  )
 
   return (
     <div className="cart-container">
@@ -70,7 +74,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={handleCheckOut}>Checkout</button>
       </div>
     </div>
   );
